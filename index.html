@@ -28,70 +28,35 @@
     <script src="src/facebook.js"></script>
     <script src="src/Invite.js"></script>
     <script src="src/Share.js"></script>
-    <script src="src/Ads.js"></script>
+
+    <!-- Ads. -->
+    <script src="//ads.lfstmedia.com/getad?site=285293" type="text/javascript"></script>
 
     <!-- Load game entrance -->
     <script src="src/main.js"></script>
-
-
-    <!-- For debugging in Intel XDK. -->
-<!--    <script src="http://debug-software.intel.com/target/target-script-min.js#OKWhYIU8stCO_AvDiiWPrThw4LTgdr4PyQLAqVoXX9A"></script>-->
-
-    <style>
-        body {
-            background-color: black;
-            margin: 0px;
-            padding: 0px;
-        }
-    </style>
 </head>
 <body>
-    <!-- Facebook API -->
-<!--
-    <script>
-        //window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '611658819003576',
-              xfbml      : true,
-              version    : 'v2.6'
-            });
-
-            // ADD ADDITIONAL FACEBOOK CODE HERE
-
-            function onLogin(response) {
-              if (response.status == 'connected') {
-                FB.api('/me?fields=first_name', function(data) {
-                  var welcomeBlock = document.getElementById('fb-welcome');
-                  welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-                });
-              }
-            }
-
-            FB.getLoginStatus(function(response) {
-              // Check login status on load, and if the user is
-              // already logged in, go directly to the welcome message.
-              if (response.status == 'connected') {
-                onLogin(response);
-              } else {
-                // Otherwise, show Login dialog first.
-                FB.login(function(response) {
-                  onLogin(response);
-                }, {scope: 'user_friends, email'});
-              }
-            });
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-</script>
--->
-
     <!-- Main canvas for rendering game stage -->
+    <div id="ads">
+        <script type="text/javascript">
+          //<![CDATA[
+          LSM_Slot({
+            adkey: '9da',
+            ad_size: '728x90',
+            slot: 'slot168075'
+          });
+          //]]>
+        </script>
+        <script type="text/javascript">
+          //<![CDATA[
+          LSM_Slot({
+            adkey: '9da',
+            ad_size: '728x90',
+            slot: 'slot168075'
+          });
+          //]]>
+        </script>
+    </div>
     <div id="game"></div>
 </body>
 </html>

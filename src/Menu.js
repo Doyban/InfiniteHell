@@ -13,16 +13,13 @@ InfiniteHell.Menu.prototype = {
         this.startButton.anchor.setTo(0.5);
         
         // Buttons.
-        this.inviteButton = this.game.add.button(this.game.width/2 - 1.5 * this.difference, this.game.world.centerY + 150, "invite", this.inviteStart, this);
+        this.inviteButton = this.game.add.button(this.game.width/2 - this.difference, this.game.world.centerY + 100, "invite", this.inviteStart, this);
         this.inviteButton.anchor.setTo(0.5);
         
-        this.adsButton = this.game.add.button(this.game.width/2 - 0.5 *  this.difference, this.game.world.centerY + 150, 'ads', this.adsStart, this);
-        this.adsButton.anchor.setTo(0.5);
-        
-        this.shopButton = this.game.add.button(this.game.width/2 + 0.5 *  this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
+        this.shopButton = this.game.add.button(this.game.width/2, this.game.world.centerY + 100, 'shop', this.shopStart, this);
         this.shopButton.anchor.setTo(0.5);
         
-        this.shareButton = this.game.add.button(this.game.width/2 + 1.5 * this.difference, this.game.world.centerY + 150, 'share', this.shareStart, this);
+        this.shareButton = this.game.add.button(this.game.width/2 + this.difference, this.game.world.centerY + 100, 'share', this.shareStart, this);
         this.shareButton.anchor.setTo(0.5);
         
         // Sounds for all the time during playing the game.
@@ -49,10 +46,6 @@ InfiniteHell.Menu.prototype = {
         this.gameSound.play('', 0, 0.06, true);
         this.gameSound2.play('', 0, 0.1, true);
         this.state.start('Game');
-    },
-    
-    adsStart: function() {
-        this.state.start('Ads');
     },
     
     shopStart: function() {

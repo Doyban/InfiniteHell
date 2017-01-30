@@ -16,7 +16,7 @@ InfiniteHell.Preload.prototype = {
         this.load.spritesheet('player', 'asset/images/player.png', 60, 78, 4);
         this.load.spritesheet('playerHit', 'asset/images/playerHit.png', 61, 78, 3);
         this.load.spritesheet('playerGrab', 'asset/images/playerGrab.png', 65, 78, 5);
-        
+
         // Artifacts.
         this.load.image('armor', 'asset/images/armor.png');
         this.load.image('book', 'asset/images/book.png');

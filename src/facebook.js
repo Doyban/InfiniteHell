@@ -41,6 +41,17 @@ function shareGame(){
     }, function(response){});
 }
 
+function shareScore(n){
+  FB.ui({
+    method: "feed",
+    link: "https://apps.facebook.com/infinitehell/",
+    caption: "Play InfiniteHell!",
+    name: "My score in InfiniteHell is " + n + "!",
+    description: "I scored " + n + " in InfiniteHell. Can you beat my score?",
+    picture: "https://doyban.com/facebook/infinitehell/asset/images/logo.png"
+  }, function(response){});
+}
+
 function inviteFriends() {
     FB.ui({
         method: 'apprequests',
