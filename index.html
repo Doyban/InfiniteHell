@@ -17,7 +17,7 @@
 
     <!-- Load Phaser engine -->
     <script src="lib/phaser.min.js"></script>
-
+    
     <!-- Load game source files -->
     <script src="src/Boot.js"></script>
     <script src="src/Preload.js"></script>
@@ -25,73 +25,33 @@
     <script src="src/Game.js"></script>
     <script src="src/GameOver.js"></script>
     <script src="src/Shop.js"></script>
-    <script src="src/facebook.js"></script>
-    <script src="src/Invite.js"></script>
-    <script src="src/Share.js"></script>
     <script src="src/Ads.js"></script>
+    
+    <!-- must-have, created by cordova when prepare/build -->
+    <script type="text/javascript" src="cordova.js"></script>
+    
+<!--    <script src="src/index.js"></script>-->
+<!--    <script src="js/app.js"></script>-->
+    <script src="src/Invite.js"></script>
+    <script src="src/admob.js"></script>
+    <script src="src/aadmob.js"></script>
+
+    <!-- for your event code, see README and file comments for details -->
+    <script src="src/init-app.js"></script>
+    <!-- for your init code, see README and file comments for details -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see file for details -->
+    <script src="src/util.js"></script>
 
     <!-- Load game entrance -->
     <script src="src/main.js"></script>
-
-
-    <!-- For debugging in Intel XDK. -->
-<!--    <script src="http://debug-software.intel.com/target/target-script-min.js#OKWhYIU8stCO_AvDiiWPrThw4LTgdr4PyQLAqVoXX9A"></script>-->
-
-    <style>
-        body {
-            background-color: black;
-            margin: 0px;
-            padding: 0px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
 </head>
 <body>
-    <!-- Facebook API -->
-<!--
-    <script>
-        //window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '611658819003576',
-              xfbml      : true,
-              version    : 'v2.6'
-            });
-
-            // ADD ADDITIONAL FACEBOOK CODE HERE
-
-            function onLogin(response) {
-              if (response.status == 'connected') {
-                FB.api('/me?fields=first_name', function(data) {
-                  var welcomeBlock = document.getElementById('fb-welcome');
-                  welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-                });
-              }
-            }
-
-            FB.getLoginStatus(function(response) {
-              // Check login status on load, and if the user is
-              // already logged in, go directly to the welcome message.
-              if (response.status == 'connected') {
-                onLogin(response);
-              } else {
-                // Otherwise, show Login dialog first.
-                FB.login(function(response) {
-                  onLogin(response);
-                }, {scope: 'user_friends, email'});
-              }
-            });
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-</script>
--->
-
     <!-- Main canvas for rendering game stage -->
-    <div id="game"></div>
+    <div id="game">
+        <div id="fb-root"></div>
+        <div id="ads"></div>
+    </div>
 </body>
 </html>

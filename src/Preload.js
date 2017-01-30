@@ -38,7 +38,7 @@ InfiniteHell.Preload.prototype = {
         this.load.image('lives', 'asset/images/lives.png');
         
         // Buttons for menus.
-        this.load.image('ads', 'asset/images/ads.png', 64, 64);
+        this.load.image('ads', 'asset/images/gift.png', 64, 64);
         this.load.image('start', 'asset/images/start.png', 64, 64);
         this.load.image('home', 'asset/images/home.png', 64, 64);
         this.load.image('invite', 'asset/images/invite.png', 64, 64);

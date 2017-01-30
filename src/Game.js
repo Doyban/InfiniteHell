@@ -232,7 +232,7 @@ InfiniteHell.Game.prototype = {
     },
     
     gameOver: function() {
-        this.game.state.start('GameOver');
+        this.game.state.start('GameOver', true, false, this.points);
     },
     
     checkGrab: function() {
