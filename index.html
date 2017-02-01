@@ -26,15 +26,12 @@
     <script src="src/GameOver.js"></script>
     <script src="src/Shop.js"></script>
     <script src="src/Ads.js"></script>
+    <script src="src/Invite.js"></script>
+    
+    <script src="src/admob.js"></script>
     
     <!-- must-have, created by cordova when prepare/build -->
     <script type="text/javascript" src="cordova.js"></script>
-    
-<!--    <script src="src/index.js"></script>-->
-<!--    <script src="js/app.js"></script>-->
-    <script src="src/Invite.js"></script>
-    <script src="src/admob.js"></script>
-    <script src="src/aadmob.js"></script>
 
     <!-- for your event code, see README and file comments for details -->
     <script src="src/init-app.js"></script>
@@ -45,13 +42,12 @@
 
     <!-- Load game entrance -->
     <script src="src/main.js"></script>
-    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
 </head>
 <body>
     <!-- Main canvas for rendering game stage -->
     <div id="game">
+        <!-- Required to invite Facebook friends. -->
         <div id="fb-root"></div>
-        <div id="ads"></div>
     </div>
 </body>
 </html>

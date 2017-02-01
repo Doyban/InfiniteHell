@@ -19,8 +19,8 @@ InfiniteHell.Menu.prototype = {
         this.adsButton = this.game.add.button(this.game.width/2 - 2.5 * this.difference, this.game.world.centerY + 150, 'ads', this.adsStart, this);
         this.adsButton.anchor.setTo(0.5);
         
-        this.shopButton = this.game.add.button(this.game.width/2 + 0 * this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
-        this.shopButton.anchor.setTo(0.5);
+//        this.shopButton = this.game.add.button(this.game.width/2 + 0 * this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
+//        this.shopButton.anchor.setTo(0.5);
         
         this.shareButton = this.game.add.button(this.game.width/2 + 2.5 * this.difference, this.game.world.centerY + 150, 'share', this.shareStart, this);
         this.shareButton.anchor.setTo(0.5);
@@ -45,6 +45,8 @@ InfiniteHell.Menu.prototype = {
         this.text2.anchor.setTo(0.5);
         this.text3 = this.game.add.text(this.game.world.centerX, this.game.world.centerY - 100, "SWIPE DOWN - open the chest", this.style2);
         this.text3.anchor.setTo(0.5);
+        
+        initAds();
     },
     
     startGame: function() {
@@ -55,13 +57,15 @@ InfiniteHell.Menu.prototype = {
     },
     
     adsStart: function() {
-//        this.state.start('Ads');
-//        initAdMob();
-//        createInterstitial();
-//        showInterstitial();
-//        createBanner();
-//        showBanner();
-        initApp();
+        var that = this;
+
+        showAds();
+
+        // After user dismiss ads then start game with 1 extra live.
+        document.addEventListener("onAdDismiss", function() {
+            this.extraLives = 1;
+            that.game.state.start('Game', true, false, this.extraLives);
+        });
     },
     
     shopStart: function() {
