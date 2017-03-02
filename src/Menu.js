@@ -19,8 +19,8 @@ InfiniteHell.Menu.prototype = {
         this.adsButton = this.game.add.button(this.game.width/2 - 2.5 * this.difference, this.game.world.centerY + 150, 'ads', this.adsStart, this);
         this.adsButton.anchor.setTo(0.5);
         
-//        this.shopButton = this.game.add.button(this.game.width/2 + 0 * this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
-//        this.shopButton.anchor.setTo(0.5);
+        this.shopButton = this.game.add.button(this.game.width/2 + 0 * this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
+        this.shopButton.anchor.setTo(0.5);
         
         this.shareButton = this.game.add.button(this.game.width/2 + 2.5 * this.difference, this.game.world.centerY + 150, 'share', this.shareStart, this);
         this.shareButton.anchor.setTo(0.5);
