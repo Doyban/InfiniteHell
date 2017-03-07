@@ -28,31 +28,42 @@ InfiniteHell.Shop.prototype = {
     },
     
     gameStart5Lives: function() {
+        // add5Lives();
+        InfiniteHell.Facebook.prototype.add5Lives();
         this.extraLives = 5;
         this.game.state.start('Game', true, false, this.extraLives);
     },
     
     gameStart15Lives: function() {
+        // add15Lives();
+        InfiniteHell.Facebook.prototype.add15Lives();
         this.extraLives = 15;
         this.game.state.start('Game', true, false, this.extraLives);
     },
     
     gameStart40Lives: function() {
+        // var that = this;
+        // add40Lives();
+        InfiniteHell.Facebook.prototype.add40Lives();
         this.extraLives = 40;
         this.game.state.start('Game', true, false, this.extraLives);
     },
     
     gameStart100Lives: function() {
+        // add100Lives();
+        InfiniteHell.Facebook.prototype.add100Lives();
         this.extraLives = 100;
         this.game.state.start('Game', true, false, this.extraLives);
     },
     
     gameStart200Lives: function() {
+        // add200Lives();
+        InfiniteHell.Facebook.prototype.add200Lives();
         this.extraLives = 200;
         this.game.state.start('Game', true, false, this.extraLives);
     },
     
     menuStart: function() {
         this.game.state.start('Menu');
-    },
+    }
 };

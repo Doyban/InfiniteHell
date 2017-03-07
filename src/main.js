@@ -12,8 +12,8 @@ InfiniteHell.game.state.add('Invite', InfiniteHell.Invite);
 InfiniteHell.game.state.add('Game', InfiniteHell.Game);
 InfiniteHell.game.state.add('GameOver', InfiniteHell.GameOver);
 InfiniteHell.game.state.add('Ads', InfiniteHell.Ads);
-InfiniteHell.game.state.add('Share', InfiniteHell.Share);
 InfiniteHell.game.state.add('Shop', InfiniteHell.Shop);
+InfiniteHell.game.state.add('Facebook', InfiniteHell.Facebook);
 
 // Start game with Boot state.
 InfiniteHell.game.state.start('Boot');

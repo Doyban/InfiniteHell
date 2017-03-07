@@ -16,8 +16,8 @@ InfiniteHell.Menu.prototype = {
         this.inviteButton = this.game.add.button(this.game.width/2 - this.difference, this.game.world.centerY + 100, "invite", this.inviteStart, this);
         this.inviteButton.anchor.setTo(0.5);
 
-        // this.shopButton = this.game.add.button(this.game.width/2, this.game.world.centerY + 100, 'shop', this.shopStart, this);
-        // this.shopButton.anchor.setTo(0.5);
+        this.shopButton = this.game.add.button(this.game.width/2, this.game.world.centerY + 100, 'shop', this.shopStart, this);
+        this.shopButton.anchor.setTo(0.5);
 
         this.shareButton = this.game.add.button(this.game.width/2 + this.difference, this.game.world.centerY + 100, 'share', this.shareStart, this);
         this.shareButton.anchor.setTo(0.5);
@@ -49,14 +49,17 @@ InfiniteHell.Menu.prototype = {
     },
 
     shopStart: function() {
+        // showProducts();
+        // InfiniteHell.Facebook.prototype.showProducts();
         this.state.start('Shop');
     },
 
     inviteStart: function() {
-        inviteFriends();
+        // inviteFriends();
+      InfiniteHell.Facebook.prototype.inviteFriends();
     },
 
     shareStart: function() {
-        shareGame();
+      InfiniteHell.Facebook.prototype.shareGame();
     }
 };

@@ -28,7 +28,8 @@ InfiniteHell.GameOver.prototype = {
     },
     
     shareStart: function() {
-        shareScore(this.pointsToShare);
+        // shareScore(this.pointsToShare);
+        InfiniteHell.Facebook.prototype.shareScore(this.pointsToShare);
         // console.log(this.pointsToShare);
     }
 };
