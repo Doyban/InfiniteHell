@@ -11,7 +11,6 @@ InfiniteHell.game.state.add('Menu', InfiniteHell.Menu);
 InfiniteHell.game.state.add('Invite', InfiniteHell.Invite);
 InfiniteHell.game.state.add('Game', InfiniteHell.Game);
 InfiniteHell.game.state.add('GameOver', InfiniteHell.GameOver);
-InfiniteHell.game.state.add('Ads', InfiniteHell.Ads);
 InfiniteHell.game.state.add('Shop', InfiniteHell.Shop);
 InfiniteHell.game.state.add('Facebook', InfiniteHell.Facebook);
 

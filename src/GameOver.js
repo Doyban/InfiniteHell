@@ -24,7 +24,7 @@ InfiniteHell.GameOver.prototype = {
     },
     
     menuStart: function() {
-        this.game.state.start('Menu');
+        this.state.start('Menu');
     },
     
     shareStart: function() {

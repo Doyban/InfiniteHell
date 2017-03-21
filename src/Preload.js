@@ -78,6 +78,9 @@ InfiniteHell.Preload.prototype = {
             'asset/audio/welcome.wav']); 
         
         this.welcomeSound = this.game.add.audio('welcome');
+
+        InfiniteHell.Facebook.prototype.fbAsyncInit(); // Load Facebook API.
+        // InfiniteHell.Facebook.prototype.consumePurchase();
     },
     
     create: function() {

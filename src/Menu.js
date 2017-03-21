@@ -49,17 +49,14 @@ InfiniteHell.Menu.prototype = {
     },
 
     shopStart: function() {
-        // showProducts();
-        // InfiniteHell.Facebook.prototype.showProducts();
-        this.state.start('Shop');
+        this.state.start('Shop'); // Start Shop state.
     },
 
     inviteStart: function() {
-        // inviteFriends();
-      InfiniteHell.Facebook.prototype.inviteFriends();
+      InfiniteHell.Facebook.prototype.inviteFriends(); // Load invite Facebook friends.
     },
 
     shareStart: function() {
-      InfiniteHell.Facebook.prototype.shareGame();
+      InfiniteHell.Facebook.prototype.shareGame(); // Load share game on Facebook.
     }
 };
