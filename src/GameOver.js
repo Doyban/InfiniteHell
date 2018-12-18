@@ -28,7 +28,6 @@ InfiniteHell.GameOver.prototype = {
     },
     
     shareStart: function() {
-//        alert("Got " + this.pointsToShare + " points.");
-        window.plugins.socialsharing.share('Play InfiniteHell!', 'My score in InfiniteHell is ' + this.pointsToShare + '!', 'https://doyban.com/facebook/infinitehell/asset/images/logo.png', 'https://doyban.com/infinitehell/');
+        shareScore(this.pointsToShare);
     }
 };

@@ -3,7 +3,7 @@ var InfiniteHell = InfiniteHell || {};
 InfiniteHell.Menu = function(){};
 
 InfiniteHell.Menu.prototype = {
-    preload: function() {
+    create: function() {
         // Difference between each button.
         this.difference = 74;
         
@@ -16,11 +16,9 @@ InfiniteHell.Menu.prototype = {
         this.inviteButton = this.game.add.button(this.game.width/2 - 5 * this.difference, this.game.world.centerY + 150, "invite", this.inviteStart, this);
         this.inviteButton.anchor.setTo(0.5);
         
-        this.adsButton = this.game.add.button(this.game.width/2 - 2.5 * this.difference, this.game.world.centerY + 150, 'ads', this.adsStart, this);
-        this.adsButton.anchor.setTo(0.5);
-        
-        this.shopButton = this.game.add.button(this.game.width/2 + 0 * this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
-        this.shopButton.anchor.setTo(0.5);
+        // TODO: Add IAP.
+        // this.shopButton = this.game.add.button(this.game.width/2 - 2.5 * this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
+        // this.shopButton.anchor.setTo(0.5);
         
         this.shareButton = this.game.add.button(this.game.width/2 + 2.5 * this.difference, this.game.world.centerY + 150, 'share', this.shareStart, this);
         this.shareButton.anchor.setTo(0.5);
@@ -56,31 +54,20 @@ InfiniteHell.Menu.prototype = {
         this.state.start('Game');
     },
     
-    adsStart: function() {
-        var that = this;
-
-        showAds();
-
-        // After user dismiss ads then start game with 1 extra live.
-        document.addEventListener("onAdDismiss", function() {
-            this.extraLives = 1;
-            that.game.state.start('Game', true, false, this.extraLives);
-        });
-    },
-    
-    shopStart: function() {
-        this.state.start('Shop');
-    },
+    // TODO: Add IAP.
+    // shopStart: function() {
+    //     this.state.start('Shop');
+    // },
     
     inviteStart: function() {
-        inviteFriends();
+        inviteGame();
     },
     
     shareStart: function() {
-        window.plugins.socialsharing.share('Play InfiniteHell!', 'Play InfiniteHell!', 'https://doyban.com/facebook/infinitehell/asset/images/logo.png', 'https://doyban.com/infinitehell/');
+        shareGame();
     },
     
     exitStart: function() {
-        navigator.app.exitApp();
+        exitGame();
     }
 };

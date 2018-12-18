@@ -24,7 +24,7 @@ InfiniteHell.Boot.prototype = {
         this.scale.pageAlignVertically = true;
         
         // Screen size will be set automatically.
-        this.scale.setScreenSize(true);
+        // this.scale.setScreenSize(true); // Old Phaser method.
         
         // Physics system.
         this.game.physics.startSystem(Phaser.Physics.ARCADE);

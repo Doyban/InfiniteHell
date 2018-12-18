@@ -2,6 +2,7 @@ var InfiniteHell = InfiniteHell || {};
 
 InfiniteHell.Game = function(){};
 
+// TODO: Remove repeated sounds, check ads, and welcome sound.
 InfiniteHell.Game.prototype = {
     preload: function() {
         this.game.time.advancedTiming = true;
@@ -232,6 +233,7 @@ InfiniteHell.Game.prototype = {
     },
     
     gameOver: function() {
+        showAds();
         this.game.state.start('GameOver', true, false, this.points);
     },
     
