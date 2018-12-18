@@ -1,0 +1,2 @@
+var InfiniteHell=InfiniteHell||{}
+InfiniteHell.Boot=function(){},InfiniteHell.Boot.prototype={preload:function(){this.load.image("preloadbar","asset/images/preloadbar.png")},create:function(){this.load.image("preloadbar","asset/images/preloadbar.png"),this.game.stage.backgroundColor="#5555FF",this.scale.scaleMode=Phaser.ScaleManager.SHOW_ALL,this.scale.pageAlignHorizontally=!0,this.scale.pageAlignVertically=!0,this.scale.setScreenSize(!0),this.game.physics.startSystem(Phaser.Physics.ARCADE),this.state.start("Preload")}}

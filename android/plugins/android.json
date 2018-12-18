@@ -1,0 +1,43 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "611658819003576",
+            "APP_NAME": "InfiniteHell",
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cc.fovea.cordova.purchase": {
+            "BILLING_KEY": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArTicHaFCzmd1IqgyY1fYyvL50/38BQKR3MUgXt1VI+U1unKU4cBkgguiaFM8UyFVOkzVE9CMIpfWMWv9In+5q/e2t2oFS1/667JWrwJgCucwzKO9WpaIhHfB070L2EwDY4wC86K0C9kvUzvFmFRIz2jEAbcHTxw1rqlTygQiSjq8Z4NQtY0816JW/hnDtCbXtdfaWOUcOg9TSEoOBJzlW1AeoWJf3hMHpZpombgAFzhJ1egrX8zZTjzXutYrUcMyA24xZOvv92iEB4lO9uFLLYXJbqkbAyU/jtW6XquvZF7lnEhJhM39AF+jheadhXiRSiwK1CnIHAk6n0XF97ID+wIDAQAB",
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        }
+    }
+}
