@@ -26,10 +26,6 @@ InfiniteHell.Menu.prototype = {
         this.exitButton = this.game.add.button(this.game.width/2 + 5 *  this.difference, this.game.world.centerY + 150, 'home', this.exitStart, this);
         this.exitButton.anchor.setTo(0.5);
         
-        // Sounds for all the time during playing the game.
-        this.gameSound = this.game.add.audio('game');
-        this.gameSound2 = this.game.add.audio('game2');
-        
         // Styles for texts.
         this.style = {font: "bold 42px Times New Roman", fill: "#FFFFFF"};
         this.style2 = {font: "bold 26px Times New Roman", fill: "#DDDDFF"};
@@ -48,9 +44,6 @@ InfiniteHell.Menu.prototype = {
     },
     
     startGame: function() {
-        // Play sounds for all the time during playing the game.
-        this.gameSound.play('', 0, 0.06, true);
-        this.gameSound2.play('', 0, 0.1, true);
         this.state.start('Game');
     },
     

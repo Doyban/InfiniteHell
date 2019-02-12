@@ -76,13 +76,19 @@ InfiniteHell.Preload.prototype = {
             'asset/audio/welcome.ogg',
             'asset/audio/welcome.mp3',
             'asset/audio/welcome.wav']); 
-        
-        this.welcomeSound = this.game.add.audio('welcome');
     },
     
     create: function() {
+        // Load sounds.
+        this.welcomeSound = this.game.add.audio('welcome');
+        this.gameSound = this.game.add.audio('game');
+        this.gameSound2 = this.game.add.audio('game2');
+
+        // Play sounds for all the time during playing the game.
+        this.gameSound.play('', 0, 0.06, true);
+        this.gameSound2.play('', 0, 0.1, true);
+
+        this.welcomeSound.play(); // Play sound for beggining the game.
         this.state.start('Menu');
-        // Play sound for beggining the game.
-        this.welcomeSound.play();
     }
 };
