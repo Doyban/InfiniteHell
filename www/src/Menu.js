@@ -1,86 +1,85 @@
 var InfiniteHell = InfiniteHell || {};
 
-InfiniteHell.Menu = function(){};
+InfiniteHell.Menu = function () {};
 
 InfiniteHell.Menu.prototype = {
-    preload: function() {
+    preload: function () {
         // Difference between each button.
         this.difference = 74;
-        
+
         // Show button to start the game.
-        this.startButton = this.game.add.button(this.game.width/2, this.game.world.centerY, "start", this.startGame, this);
+        this.startButton = this.game.add.button(this.game.width / 2, this.game.world.centerY, "start", this.startGame, this);
         // Center image.
         this.startButton.anchor.setTo(0.5);
-        
+
         // Buttons.
-        this.inviteButton = this.game.add.button(this.game.width/2 - 5 * this.difference, this.game.world.centerY + 150, "invite", this.inviteStart, this);
+        this.inviteButton = this.game.add.button(this.game.width / 2 - 5 * this.difference, this.game.world.centerY + 150, "invite", this.inviteStart, this);
         this.inviteButton.anchor.setTo(0.5);
-        
-        this.adsButton = this.game.add.button(this.game.width/2 - 2.5 * this.difference, this.game.world.centerY + 150, 'ads', this.adsStart, this);
+
+        this.adsButton = this.game.add.button(this.game.width / 2 - 2 * this.difference, this.game.world.centerY + 150, 'ads', this.adsStart, this);
         this.adsButton.anchor.setTo(0.5);
-        
-        this.shopButton = this.game.add.button(this.game.width/2 + 0 * this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
+
+        this.shopButton = this.game.add.button(this.game.width / 2 + 2 * this.difference, this.game.world.centerY + 150, 'shop', this.shopStart, this);
         this.shopButton.anchor.setTo(0.5);
-        
-        this.shareButton = this.game.add.button(this.game.width/2 + 2.5 * this.difference, this.game.world.centerY + 150, 'share', this.shareStart, this);
+
+        this.shareButton = this.game.add.button(this.game.width / 2 + 5 * this.difference, this.game.world.centerY + 150, 'share', this.shareStart, this);
         this.shareButton.anchor.setTo(0.5);
-        
-        this.exitButton = this.game.add.button(this.game.width/2 + 5 *  this.difference, this.game.world.centerY + 150, 'home', this.exitStart, this);
-        this.exitButton.anchor.setTo(0.5);
-        
+
         // Sounds for all the time during playing the game.
         this.gameSound = this.game.add.audio('game');
         this.gameSound2 = this.game.add.audio('game2');
-        
+
         // Styles for texts.
-        this.style = {font: "bold 42px Times New Roman", fill: "#FFFFFF"};
-        this.style2 = {font: "bold 26px Times New Roman", fill: "#DDDDFF"};
+        this.style = {
+            font: "bold 42px Times New Roman",
+            fill: "#FFFFFF"
+        };
+        this.style2 = {
+            font: "bold 26px Times New Roman",
+            fill: "#DDDDFF"
+        };
 
         //  How to play text.
         this.text = this.game.add.text(this.game.world.centerX, this.game.world.centerY - 200, "How to play?", this.style);
         this.text.anchor.setTo(0.5);
-        
+
         // Describing how to play texts.
         this.text2 = this.game.add.text(this.game.world.centerX, this.game.world.centerY - 140, "SWIPE UP - jump over enemies", this.style2);
         this.text2.anchor.setTo(0.5);
         this.text3 = this.game.add.text(this.game.world.centerX, this.game.world.centerY - 100, "SWIPE DOWN - open the chest", this.style2);
         this.text3.anchor.setTo(0.5);
-        
-        initAds();
+
+        initAds(); // Initialize ads.
     },
-    
-    startGame: function() {
+
+    startGame: function () {
         // Play sounds for all the time during playing the game.
         this.gameSound.play('', 0, 0.06, true);
         this.gameSound2.play('', 0, 0.1, true);
         this.state.start('Game');
     },
-    
-    adsStart: function() {
+
+    adsStart: function () {
         var that = this;
 
-        showAds();
+        showAds(); // Show ads.
 
         // After user dismiss ads then start game with 1 extra live.
-        document.addEventListener("onAdDismiss", function() {
+        document.addEventListener("onAdDismiss", function () {
             this.extraLives = 1;
             that.game.state.start('Game', true, false, this.extraLives);
         });
     },
-    
-    shopStart: function() {
+
+    shopStart: function () {
         this.state.start('Shop');
     },
-    
-    inviteStart: function() {
+
+    inviteStart: function () {
         inviteFriends();
     },
-    
-    shareStart: function() {
+
+    shareStart: function () {
         window.plugins.socialsharing.share('Play InfiniteHell!', 'Play InfiniteHell!', 'https://doyban.com/facebook/infinitehell/asset/images/logo.png', 'https://doyban.com/infinitehell/');
-    },
-    
-    exitStart: function() {
-        navigator.app.exitApp();
     }
 };

@@ -1,0 +1,47 @@
+{
+  "name": "com.doyban.infinitehell",
+  "displayName": "InfiniteHell",
+  "version": "1.0.0",
+  "description": "InfiniteHell is a neverending hell!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Danielecki",
+  "dependencies": {
+    "cordova-admob-sdklibs": "^2.1.6",
+    "cordova-ios": "^5.0.1",
+    "cordova-plugin-admob-simple": "^3.3.8",
+    "cordova-plugin-facebook4": "6.2.0",
+    "cordova-plugin-inappbrowser": "^3.1.0",
+    "cordova-plugin-purchase": "^9.0.1",
+    "cordova-plugin-statusbar": "^2.4.3",
+    "cordova-plugin-x-socialsharing": "^5.6.2",
+    "es6-promise-plugin": "^4.2.2"
+  },
+  "devDependencies": {
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-purchase": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-admob-simple": {},
+      "cordova-plugin-x-socialsharing": {
+        "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly."
+      },
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "611658819003576",
+        "APP_NAME": "InfiniteHell",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false",
+        "FACEBOOK_ANDROID_SDK_VERSION": "5.5.2"
+      }
+    },
+    "platforms": [
+      "ios"
+    ]
+  }
+}

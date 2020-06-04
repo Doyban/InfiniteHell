@@ -1,5 +1,6 @@
 var inviteFriends = function () {
     facebookConnectPlugin.showDialog({
+        actionType: '',
         method: 'apprequests',
         message: 'Play InfiniteHell with me!'
     },

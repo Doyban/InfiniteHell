@@ -2,7 +2,7 @@
 var InfiniteHell = InfiniteHell || {};
 
 // WxH: 896x500, but will be automatically scaled. Phaser.CANVAS - debugging features, Phaser.AUTO - normally. 7 * 128 (fire spritesheet) = 896.
-InfiniteHell.game = new Phaser.Game(896, 500, Phaser.AUTO, 'game');
+InfiniteHell.game = new Phaser.Game(896, 450, Phaser.AUTO, 'game');
 
 // Add each state.
 InfiniteHell.game.state.add('Boot', InfiniteHell.Boot);
