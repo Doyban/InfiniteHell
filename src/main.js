@@ -11,7 +11,7 @@ InfiniteHell.game.state.add('Menu', InfiniteHell.Menu);
 InfiniteHell.game.state.add('Game', InfiniteHell.Game);
 InfiniteHell.game.state.add('GameOver', InfiniteHell.GameOver);
 InfiniteHell.game.state.add('Ads', InfiniteHell.Ads);
-// InfiniteHell.game.state.add('Shop', InfiniteHell.Shop); // TODO: Add IAP.
+InfiniteHell.game.state.add('Shop', InfiniteHell.Shop);
 
 // Start game with Boot state.
 InfiniteHell.game.state.start('Boot');

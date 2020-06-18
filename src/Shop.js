@@ -1,171 +1,129 @@
 var InfiniteHell = InfiniteHell || {};
 
-InfiniteHell.Shop = function(){};
+InfiniteHell.Shop = function () {};
 
 InfiniteHell.Shop.prototype = {
-    create: function() {
+    create: function () {
         // Difference between each button.
         this.difference = 33;
-        
+
         // Buttons.
         this.fiveLivesButton = this.game.add.button(this.game.cache.getImage('5lives').width / 2 + this.difference, this.game.world.centerY, '5lives', this.gameStart5Lives, this);
         this.fiveLivesButton.anchor.setTo(0.5);
-        
+
         this.fifteenLivesButton = this.game.add.button(this.game.cache.getImage('5lives').width / 2 + this.game.cache.getImage('15lives').width + 2 * this.difference, this.game.world.centerY, '15lives', this.gameStart15Lives, this);
         this.fifteenLivesButton.anchor.setTo(0.5);
-        
+
         this.fortyLivesButton = this.game.add.button(this.game.cache.getImage('5lives').width / 2 + 2 * this.game.cache.getImage('40lives').width + 3 * this.difference, this.game.world.centerY, '40lives', this.gameStart40Lives, this);
         this.fortyLivesButton.anchor.setTo(0.5);
-        
-        this.oneHundredLivesButton = this.game.add.button(this.game.cache.getImage('5lives').width / 2 + 3 *  this.game.cache.getImage('100lives').width + 4 * this.difference, this.game.world.centerY, '100lives', this.gameStart100Lives, this);
+
+        this.oneHundredLivesButton = this.game.add.button(this.game.cache.getImage('5lives').width / 2 + 3 * this.game.cache.getImage('100lives').width + 4 * this.difference, this.game.world.centerY, '100lives', this.gameStart100Lives, this);
         this.oneHundredLivesButton.anchor.setTo(0.5);
-        
-        this.twoHundredLivesButton = this.game.add.button(this.game.cache.getImage('5lives').width / 2 + 4 *  this.game.cache.getImage('200lives').width + 5 * this.difference, this.game.world.centerY, '200lives', this.gameStart200Lives, this);
+
+        this.twoHundredLivesButton = this.game.add.button(this.game.cache.getImage('5lives').width / 2 + 4 * this.game.cache.getImage('200lives').width + 5 * this.difference, this.game.world.centerY, '200lives', this.gameStart200Lives, this);
         this.twoHundredLivesButton.anchor.setTo(0.5);
-        
-        this.homeButton = this.game.add.button(this.game.width/2, this.game.height - 1.5 * this.difference, 'home', this.menuStart, this);
+
+        this.homeButton = this.game.add.button(this.game.width / 2, this.game.height - 1.5 * this.difference, 'home', this.menuStart, this);
         this.homeButton.anchor.setTo(0.5);
     },
-    
-    gameStart5Lives: function() {
-        var that = this;
-        
-        document.addEventListener('deviceready', initializeStore, false);
-    
-        function initializeStore() {
-    //        store.verbosity = store.INFO;
 
-            // Prepare product.
-            store.register({
-                id:    "5lives",
-                alias: "5 Lives",
-                type:  store.CONSUMABLE
-            });
+    gameStart5Lives: function () {
+        var that = this; // Keep reference to the context on this level.
 
-    //        alert(store.get("5lives"));
-    //        store.ready(function() {
-    //        alert("\\o/ STORE READY external function 5 lives");
-    //        });
-
-            // Purchase product.
-            store.order("5lives");
-            store.refresh();
-            store.when("5lives").approved(function (order) {
-                order.finish();
-                store.refresh();
-    //            alert("You got an 5 EXTRA LIFE! external function");
-                // Add 5 extra lives and begin the game.
-                this.extraLives = 5;
+        FBInstant.payments.purchaseAsync({
+            productID: '5lives'
+        }).then(function (purchase) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart5Lives ran successfully. Purchase details: ', purchase); // Log "purchaseAsync" of "gameStart5Lives" information to Facebook Analytics.
+            FBInstant.payments.consumePurchaseAsync(purchase.purchaseToken).then(function () {
+                this.extraLives = 5; // Set appropriate quantity of extra lives.
                 that.game.state.start('Game', true, false, this.extraLives);
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart5Lives ran successfully.'); // Log "consumePurchaseAsync" of "gameStart5Lives" information to Facebook Analytics.
+            }).catch(function (error) {
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart5Lives error: ', error); // Log "consumePurchaseAsync" of "gameStart5Lives" error to Facebook Analytics.
             });
-        }
+        }).catch(function (error) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart5Lives error: ', error); // Log "purchaseAsync" of "gameStart5Lives" error to Facebook Analytics.
+        });
     },
-    
-    gameStart15Lives: function() {
-        var that = this;
-        
-        document.addEventListener('deviceready', initializeStore, false);
-    
-        function initializeStore() {
-            // Prepare product.
-            store.register({
-                id:    "15lives",
-                alias: "15 Lives",
-                type:  store.CONSUMABLE
-            });
 
-            // Purchase product.
-            store.order("15lives");
-            store.refresh();
-            store.when("15lives").approved(function (order) {
-                order.finish();
-                store.refresh();
-                // Add 15 extra lives and begin the game.
-                this.extraLives = 15;
-                that.game.state.start('Game', true, false, this.extraLives);
-            });
-        }
-    },
-    
-    gameStart40Lives: function() {
-        var that = this;
-        
-        document.addEventListener('deviceready', initializeStore, false);
-    
-        function initializeStore() {
-            // Prepare product.
-            store.register({
-                id:    "40lives",
-                alias: "40 Lives",
-                type:  store.CONSUMABLE
-            });
+    gameStart15Lives: function () {
+        var that = this; // Keep reference to the context on this level.
 
-            // Purchase product.
-            store.order("40lives");
-            store.refresh();
-            store.when("40lives").approved(function (order) {
-                order.finish();
-                store.refresh();
-                // Add 40 extra lives and begin the game.
-                this.extraLives = 40;
+        FBInstant.payments.purchaseAsync({
+            productID: '15lives'
+        }).then(function (purchase) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart15Lives ran successfully. Purchase details: ', purchase); // Log "purchaseAsync" of "gameStart15Lives" information to Facebook Analytics.
+            FBInstant.payments.consumePurchaseAsync(purchase.purchaseToken).then(function () {
+                this.extraLives = 15; // Set appropriate quantity of extra lives.
                 that.game.state.start('Game', true, false, this.extraLives);
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart15Lives ran successfully.'); // Log "consumePurchaseAsync" of "gameStart15Lives" information to Facebook Analytics.
+            }).catch(function (error) {
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart15Lives error: ', error); // Log "consumePurchaseAsync" of "gameStart15Lives" error to Facebook Analytics.
             });
-        }
+        }).catch(function (error) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart15Lives error: ', error); // Log "purchaseAsync" of "gameStart15Lives" error to Facebook Analytics.
+        });
     },
-    
-    gameStart100Lives: function() {
-        var that = this;
-        
-        document.addEventListener('deviceready', initializeStore, false);
-    
-        function initializeStore() {
-            // Prepare product.
-            store.register({
-                id:    "100lives",
-                alias: "100 Lives",
-                type:  store.CONSUMABLE
-            });
 
-            // Purchase product.
-            store.order("100lives");
-            store.refresh();
-            store.when("100lives").approved(function (order) {
-                order.finish();
-                store.refresh();
-                // Add 100 extra lives and begin the game.
-                this.extraLives = 100;
-                that.game.state.start('Game', true, false, this.extraLives);
-            });
-        }
-    },
-    
-    gameStart200Lives: function() {
-        var that = this;
-        
-        document.addEventListener('deviceready', initializeStore, false);
-    
-        function initializeStore() {
-            // Prepare product.
-            store.register({
-                id:    "200lives",
-                alias: "200 Lives",
-                type:  store.CONSUMABLE
-            });
+    gameStart40Lives: function () {
+        var that = this; // Keep reference to the context on this level.
 
-            // Purchase product.
-            store.order("200lives");
-            store.refresh();
-            store.when("200lives").approved(function (order) {
-                order.finish();
-                store.refresh();
-                // Add 200 extra lives and begin the game.
-                this.extraLives = 200;
+        FBInstant.payments.purchaseAsync({
+            productID: '40lives'
+        }).then(function (purchase) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart40Lives ran successfully. Purchase details: ', purchase); // Log "purchaseAsync" of "gameStart40Lives" information to Facebook Analytics.
+            FBInstant.payments.consumePurchaseAsync(purchase.purchaseToken).then(function () {
+                this.extraLives = 40; // Set appropriate quantity of extra lives.
                 that.game.state.start('Game', true, false, this.extraLives);
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart40Lives ran successfully.'); // Log "consumePurchaseAsync" of "gameStart40Lives" information to Facebook Analytics.
+            }).catch(function (error) {
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart40Lives error: ', error); // Log "consumePurchaseAsync" of "gameStart40Lives" error to Facebook Analytics.
             });
-        }
+        }).catch(function (error) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart40Lives error: ', error); // Log "purchaseAsync" of "gameStart40Lives" error to Facebook Analytics.
+        });
     },
-    
-    menuStart: function() {
+
+    gameStart100Lives: function () {
+        var that = this; // Keep reference to the context on this level.
+
+        FBInstant.payments.purchaseAsync({
+            productID: '100lives'
+        }).then(function (purchase) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart100Lives ran successfully. Purchase details: ', purchase); // Log "purchaseAsync" of "gameStart100Lives" information to Facebook Analytics.
+            FBInstant.payments.consumePurchaseAsync(purchase.purchaseToken).then(function () {
+                this.extraLives = 100; // Set appropriate quantity of extra lives.
+                that.game.state.start('Game', true, false, this.extraLives);
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart100Lives ran successfully.'); // Log "consumePurchaseAsync" of "gameStart100Lives" information to Facebook Analytics.
+            }).catch(function (error) {
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart100Lives error: ', error); // Log "consumePurchaseAsync" of "gameStart100Lives" error to Facebook Analytics.
+            });
+        }).catch(function (error) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart100Lives error: ', error); // Log "purchaseAsync" of "gameStart100Lives" error to Facebook Analytics.
+        });
+    },
+
+    gameStart200Lives: function () {
+        var that = this; // Keep reference to the context on this level.
+        this.extraLives = 200; // Set appropriate quantity of extra lives.
+        that.game.state.start('Game', true, false, this.extraLives);
+        FBInstant.payments.purchaseAsync({
+            productID: '200lives'
+        }).then(function (purchase) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart200Lives ran successfully. Purchase details: ', purchase); // Log "purchaseAsync" of "gameStart200Lives" information to Facebook Analytics.
+            FBInstant.payments.consumePurchaseAsync(purchase.purchaseToken).then(function () {
+                this.extraLives = 200; // Set appropriate quantity of extra lives.
+                that.game.state.start('Game', true, false, this.extraLives);
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart200Lives ran successfully.'); // Log "consumePurchaseAsync" of "gameStart200Lives" information to Facebook Analytics.
+            }).catch(function (error) {
+                FBInstant.logEvent('Method consumePurchaseAsync of method gameStart200Lives error: ', error); // Log "consumePurchaseAsync" of "gameStart200Lives" error to Facebook Analytics.
+            });
+        }).catch(function (error) {
+            FBInstant.logEvent('Method purchaseAsync of method gameStart200Lives error: ', error); // Log "purchaseAsync" of "gameStart200Lives" error to Facebook Analytics.
+        });
+    },
+
+    menuStart: function () {
         this.game.state.start('Menu');
     },
 };
